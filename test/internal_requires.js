@@ -60,4 +60,21 @@ describe("Require", function() {
       done();
     });
   });
+
+  it("correctly compiles es6 code with babel", function() {
+    Require.file({
+      file: path.join(__dirname, "lib", "module_with_es6_features.js")
+    }, function(err, exports) {
+      if (err) return done(err);
+
+      // It should export a function. Call the function.
+      var obj = exports();
+
+      // It should return the path object. This should be the same object
+      // as the one we required at the top of this file.
+      assert.equal(obj, path);
+
+      done();
+    });
+  });
 })
