@@ -28,6 +28,10 @@ var Require = {
 
       // Modified from here: https://gist.github.com/anatoliychakkaev/1599423
       var m = new Module(file);
+      if(Object.keys(m.exports).length === 0){ // invalid module
+        let modErr = new Error("Required file was not a valid module, module.exports was empty")
+        return done(modErr)
+      }
 
       // Provide all the globals listed here: https://nodejs.org/api/globals.html
       var context = {
