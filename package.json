@@ -26,6 +26,11 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
+    "babel-core": "^6.25.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-runtime": "^6.25.0",
     "original-require": "^1.0.1",
     "truffle-config": "^1.0.4",
     "truffle-expect": "^0.0.3",
