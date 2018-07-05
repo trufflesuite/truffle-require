@@ -125,6 +125,10 @@ var Require = {
       resolver: options.resolver
     }, function(err, fn) {
       if (err) return done(err);
+      if(!fn || !fn.length || fn.length == 0){ // invalid module
+        let modErr = new Error("File to be executed was not a valid module, module.exports was empty")
+        return done(modErr)
+      }
       fn(done);
     });
   }
